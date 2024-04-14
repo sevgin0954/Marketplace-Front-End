@@ -4,6 +4,7 @@ import { Product } from './interfaces/product';
 import { ProductService } from './services-singleton/product.service';
 import { CommonModule } from '@angular/common';
 import { CloudinaryModule } from '@cloudinary/ng';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { CloudinaryModule } from '@cloudinary/ng';
   imports: [
     ProductComponent,
     CommonModule,
-    CloudinaryModule
+    CloudinaryModule,
+    NavbarComponent
   ]
 })
 export class AppComponent implements OnInit {

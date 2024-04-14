@@ -10,33 +10,6 @@ a {
     color: black;
 }
 
-nav {
-    padding: 1em;
-    display: flex;
-    align-items: center;
-    background-color: var(--light-blue);
-
-    > a {
-        font-size: 2rem;
-        color: blue;
-    }
-
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        text-align: end;
-        margin-left: auto;
-    }
-
-    li {
-        margin-left: 0.5em;
-        margin-right: 0.5em;
-        display: inline-block;
-        font-size: 1.1rem;
-    }
-}
-
 .border-orange-hover:hover, .border-orange-hover:focus {
     border: 0.1em solid var(--orange);
     border-radius: 1em;
@@ -55,8 +28,4 @@ h1 {
     margin: 0;
     padding: 0;
     font-weight: 100;
-}
-
-nav {
-    margin-bottom: 1em;
 }

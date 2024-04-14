@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+
+nav {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    background-color: var(--light-blue);
+
+    > a {
+        font-size: 2rem;
+        color: var(--dark-blue);
+    }
+    > a:hover {
+        color: var(--orange);
+        transition: 0.2s;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: end;
+        margin-left: auto;
+    }
+
+    li {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        display: inline-block;
+        font-size: 1.1rem;
+    }
+}
