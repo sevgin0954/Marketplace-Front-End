@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+::placeholder {
+    color: var(--light-blue);
+    opacity: 1;
+}
+
+::-ms-input-placeholder {
+    /* Edge 12 -18 */
+    color: var(--light-blue);;
+}

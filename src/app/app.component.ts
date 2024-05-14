@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductComponent } from './product/product.component';
-import { Product } from './interfaces/product';
-import { ProductService } from './services-singleton/product.service';
 import { CommonModule } from '@angular/common';
 import { CloudinaryModule } from '@cloudinary/ng';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +10,12 @@ import { NavbarComponent } from './navbar/navbar.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [
-    ProductComponent,
     CommonModule,
     CloudinaryModule,
-    NavbarComponent
+    NavbarComponent,
+    RouterModule
   ]
 })
-export class AppComponent implements OnInit {
-  products: Product[] = [];
-
-  constructor(private productService: ProductService) { }
-
-  ngOnInit(): void {
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;  
-    });
-  }
+export class AppComponent {
+  
 }

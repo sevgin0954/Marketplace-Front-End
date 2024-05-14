@@ -1,0 +1,11 @@
+<form [formGroup]="loginForm">
+    <label for="email">First name:</label><br>
+    <input type="email" id="email" autocomplete="on" placeholder="email" formControlName="email"><br>
+    <div class="error" *ngIf="(email?.dirty || shouldDisplayFormsErrors) && email?.errors?.['required']">The field is required!</div>
+
+    <label for="password">Last name:</label><br>
+    <input type="password" id="password" autocomplete="off" placeholder="password" formControlName="password"><br>
+    <div class="error" *ngIf="(password?.dirty || shouldDisplayFormsErrors) && password?.errors?.['required']">The field is required!</div>
+
+    <input (click)="onSubmit()" value="Submit" type="button">
+</form>
