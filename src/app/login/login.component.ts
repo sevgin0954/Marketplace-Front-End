@@ -6,6 +6,8 @@ import { Constants } from '../../constants';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services-singleton/auth.service';
 import { CookieService } from '../services-singleton/cookie.service';
+import { UserService } from '../services-singleton/user-service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +34,8 @@ export class LoginComponent implements OnDestroy {
   constructor(
     private authService: AuthService, 
     private coockieService: CookieService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   get email() {
@@ -49,8 +52,12 @@ export class LoginComponent implements OnDestroy {
       return;
     }
 
-    this.getJwtTokenSubscription$ = this.authService.getNewJwtToken(this.email?.value!, this.password?.value!).subscribe(jwtToken => {
-      this.coockieService.set(Constants.JWT_TOKEN_NAME, jwtToken, Constants.JWT_TOKEN_LIFETIME_SECONDS);
+    this.getJwtTokenSubscription$ = this.authService.login(this.email?.value!, this.password?.value!).subscribe(login => {
+      this.coockieService.set(Constants.JWT_TOKEN_NAME, login.token, Constants.JWT_TOKEN_LIFETIME_SECONDS);
+
+      var user = new User(login.id, login.userName, this.email?.value!);
+      this.userService.setCurrentUser(user);
+
       this.router.navigate(['/']);
     });
   }
